@@ -1,0 +1,5 @@
+---
+
+  - name: configure project
+    debug: msg="Configure complete"
+

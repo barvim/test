@@ -1,0 +1,13 @@
+---
+  - name: Install openjdk package
+    apt:
+      name: "{{ jdk_install_packages }}"
+      autoclean: yes
+      state: present
+      force_apt_get: yes
+#    when: (ansible_distribution_release == openvpn_distribution_release)
+
+
+#  - name: Set Environments
+#    command: sh scripts/print.sh
+    

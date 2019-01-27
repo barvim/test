@@ -1,0 +1,11 @@
+---
+  - name: Install Maven package
+    apt:
+      name: "{{ maven_install_packages }}"
+      autoclean: yes
+      state: present
+      force_apt_get: yes
+#    when: (ansible_distribution_release == distribution_release)
+
+
+    

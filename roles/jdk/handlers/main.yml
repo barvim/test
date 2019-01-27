@@ -1,0 +1,14 @@
+---
+  - name: start openvpn
+    debug: msg="openvpn installed"
+        
+
+  - name: restart openvpn
+    service: 
+      name: openvpn
+      state: restarted
+      enabled: yes
+
+  - name: update repo
+    debug: msg="Update complete"
+

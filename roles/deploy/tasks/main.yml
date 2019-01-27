@@ -1,0 +1,31 @@
+---
+  - name: Register fast deploy flag
+    set_fact: DOFASTDEPLOY={{FASTDEPLOY | default('False')}}
+
+  - name: Copy project
+    copy: 
+      src=opt/testproject 
+      dest=/opt
+    when: not DOFASTDEPLOY
+
+
+  - name: Configure web application
+    template: src="{{ item }}.j2" dest="/{{ item }}"
+    with_items:
+     - "{{ deploy_configpath }}"
+    when: not DOFASTDEPLOY
+    notify:
+      - configure project
+
+  - name: Build and deploy
+    become: yes
+    become_user: root
+    script: /opt/testproject/build.sh /opt/testproject {{tomcat_path}}
+    when: not DOFASTDEPLOY
+
+  - name: Fastdeploy
+    copy: 
+      src=opt/tomcat/webapps/absence-control.war
+      dest={{tomcat_path}}/webapps/absence-control.war
+    when: DOFASTDEPLOY
+

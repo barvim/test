@@ -1,0 +1,44 @@
+---
+  - import_tasks: update.yml
+    tags:
+    - update
+
+#  - name: Install Apache Tomcat package
+#    apt:
+#      name: "{{ tomcat_install_packages }}"
+#      autoclean: yes
+#      state: present
+#      force_apt_get: yes
+#    when: (ansible_distribution_release == openvpn_distribution_release)
+
+  - name: Download tomcat
+    get_url: "url={{ TomcatURL }} dest={{ TomcatDest }}"
+
+  - name: Unarchive a file on the target machine
+    unarchive:
+      src: "{{ TomcatDest }}"
+      dest: /opt
+      remote_src: yes
+
+  - name: Configure startup script
+    template: src="{{ item }}.j2" dest="/{{ item }}"
+    with_items:
+     - "{{ script_tomcat_startup }}"
+    notify:
+      - configure project
+
+  - name: debug msg
+    debug: msg="{{ script_tomcat_bin }}"
+
+#  - name: Run Tomcat
+#    become: yes
+#    become_user: root
+#    script: "/{{ script_tomcat_startup }}"
+#    args:
+#      chdir: "{{ script_tomcat_bin }}"
+
+  - name: Start tomcat
+    command: "nohup {{script_tomcat_bin}}/startup.sh"
+
+
+

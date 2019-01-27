@@ -1,0 +1,8 @@
+---
+
+  - name: update repo
+    debug: msg="Update complete"
+
+  - name: configure project
+    debug: msg="Project configuration complete"
+  

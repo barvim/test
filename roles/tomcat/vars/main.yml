@@ -1,0 +1,21 @@
+# vars file for roles/jdk
+---
+#List of packages to install
+  tomcat_install_packages:
+    - tomcat9
+
+#Path to Tomcat9 tarball
+  TomcatURL: "http://mirror.linux-ia64.org/apache/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz"
+  TomcatDest: "/opt/apache-tomcat.tar.gz"
+
+
+# file: group_vars/all
+  ansible_connection: ssh 
+  ansible_ssh_user: root 
+
+  script_tomcat_startup: "opt/apache-tomcat-9.0.14/bin/startup.sh"
+  script_tomcat_bin: "/opt/apache-tomcat-9.0.14/bin"
+
+
+# java vars
+#  java_home_path: "/usr/lib/jvm/java-8-openjdk-i386"

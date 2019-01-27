@@ -1,0 +1,6 @@
+---
+
+#Version of system release where allowed to install software
+
+distribution_release: "xenial"
+distribution_version: "16.04"

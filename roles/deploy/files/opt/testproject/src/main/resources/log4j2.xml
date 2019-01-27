@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name = "file" filename = "absence-control.log" append = "true">
+            <PatternLayout pattern = "%d{dd MMM yyyy HH:mm:ss,SSS} %5p %t %C{1}:%M - %m%n"/>
+        </File>
+        <Async name = "appender" includeLocation="true">
+            <AppenderRef ref = "file"/>
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="appender"/>
+        </Root>
+    </Loggers>
+</Configuration>

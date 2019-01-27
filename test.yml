@@ -1,0 +1,33 @@
+---
+- vars_prompt:
+  - name: hosts_group
+    prompt: "Please enter hosts group (default all)"
+    default: all
+    private: no
+
+  hosts: '{{ hosts_group }}'
+#  become: True
+#  become_method: sudo
+#  become_user: root
+
+  roles:
+    - role: jdk
+      tags: jdk
+    - role: maven
+      tags: maven
+    - role: postgre
+      tags: postgre
+    - role: tomcat
+      tags: tomcat
+    - role: deploy
+      tags: deploy
+
+  tasks:
+    - name: Print OS distribution release
+      debug: 
+        msg: "OS distibution release: {{ansible_distribution_release}}"
+      
+  
+    - name: Ping all hosts
+      ping:
+

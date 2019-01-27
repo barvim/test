@@ -1,0 +1,23 @@
+# vars file for roles/jdk
+---
+#List of packages to install
+  jdk_install_packages:
+    - openjdk-8-jdk
+
+# file: group_vars/all
+  ansible_connection: ssh 
+  ansible_ssh_user: root 
+
+# java vars
+  java_home_path: "/usr/lib/jvm/java-8-openjdk-i386"
+
+#tomcat vars
+  tomcat_path: "/opt/apache-tomcat-9.0.14"
+
+# Some client path
+  deploy_configpath: "opt/testproject/pom.xml"
+
+#POSTGRESQL vars
+  pg_user: pguser
+  pg_password: pgpassword
+  pg_port: 5432

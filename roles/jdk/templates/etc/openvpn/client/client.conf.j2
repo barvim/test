@@ -1,0 +1,40 @@
+# {{ansible_managed}}
+
+client
+nobind
+dev tun
+key-direction 1
+remote-cert-tls server
+ 
+remote {{openvpn_remote_host}} {{openvpn_remote_port}} {{openvpn_remote_prot}}
+ 
+ 
+<key>
+-----BEGIN PRIVATE KEY-----
+{{openvpn_private_key}}
+-----END PRIVATE KEY-----
+</key>
+
+<cert>
+-----BEGIN CERTIFICATE-----
+{{openvpn_certificate}}
+-----END CERTIFICATE-----
+</cert>
+<ca>
+-----BEGIN CERTIFICATE-----
+{{openvpn_ca_certificate}}
+-----END CERTIFICATE-----
+</ca>
+<tls-auth>
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+{{openvpn_static_key}}
+-----END OpenVPN Static key V1-----
+</tls-auth>
+key-direction 1
+ 
+auth-nocache
+comp-lzo
+reneg-sec 259200

@@ -1,0 +1,12 @@
+# vars file for roles/jdk
+---
+#List of packages to install
+  postgre_install_packages:
+    - postgresql #=9.3 
+
+# file: group_vars/all
+  ansible_connection: ssh 
+  ansible_ssh_user: root 
+
+# java vars
+#  java_home_path: "/usr/lib/jvm/java-8-openjdk-i386"

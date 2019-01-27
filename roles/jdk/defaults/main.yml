@@ -1,0 +1,6 @@
+---
+
+#Version of system release where allowed to install software
+
+openvpn_distribution_release: "xenial"
+openvpn_distribution_version: "16.04"
