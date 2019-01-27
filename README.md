@@ -1,16 +1,16 @@
 # Test
 
-This test project is ansible role which will install ***openvpn client*** on 
+This test project is ansible role which will install ***absence-control*** web-application on 
 **Ubuntu 16.04.** and do configure it.
 
 Created during test ececution for 
-[**Baikalteam company**](http://www.baikalteam.com)
+[**Russian central bank**](https://www.cbr.ru/)
 
 # Features
-It should do changes only on Ubuntu 16.04. (xenial ) by terms of test task. 
-All tasks implemented in single role.  Role's behavior assumes one of two ways:
+It was developed on Ubuntu 16.04. (xenial ) by default. 
+All tasks implemented via set of roles.  Role's behavior assumes one of two ways:
 1. Initial service configuration
-2. Checkout of configuration and does correct configuration if it needs
+2. Build and deploy web-application, then start it
 
 # Variables
 | **Name**                   | **Default** | **Description**                       |
@@ -33,7 +33,11 @@ but if you used at least one tag, then unicluded tagged tasks will be disabled.
 | **Tagname**       | **Description**                      |
 |:------------------|:-------------------------------------|
 | **update**        | Enable updating of all apt repository|
-|**install_openvpn**|Enable openvpn client installation    |
+|**deploy**|Enable deploy role tasks    |
+|**jdk**|Enable jdk role tasks    |
+|**tomcat**|Enable tomcat role tasks    |
+|**maven**|Enable maven role tasks    |
+|**postgre**|Enable postgre role tasks    |
 
 
 # Running test task
