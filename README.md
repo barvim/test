@@ -15,15 +15,11 @@ All tasks implemented via set of roles.  Role's behavior assumes one of two ways
 # Variables
 | **Name**                   | **Default** | **Description**                       |
 |:---------------------------|:------------|:--------------------------------------|
-|openvpn_ca_certificate      |             |OpenVPN CA certificate                 |
-|openvpn_certificate         |             |OpenVPN certificate                    |
-|openvpn_distribution_release|xenial       |Name of distribution release allowed   |
-|openvpn_distribution_version|16.04        |Version of distribution release allowed|
-|openvpn_private_key         |             |OpenVPN private key                    |
-|openvpn_remote_host         |8.8.8.8      |OpenVPN client remote host             |
-|openvpn_remote_port         |2195         |OpenVPN client remote port             |
-|openvpn_remote_prot         |udp          |OpenVPN client protocol                |
-|openvpn_static_key          |             |OpenVPN secret static key              |
+|java_home_path      |             |Path to Java home                 |
+|pg_user         |pguser             |PostgreSQL user to app DB connection                    |
+|pg_password|pgpassword       |pg_user's pass   |
+|pg_port|5432        |PostgreSQL running port|
+|FASTDEPLOY         | False            |flag variable is true when we do fast deploy                    |
 
 
 # Tags
@@ -44,6 +40,7 @@ but if you used at least one tag, then unicluded tagged tasks will be disabled.
 Use **test.sh** shell script or run **"sudo ansible-playbook ./test.yml"** from test 
 directory. It needs to add target host records to inventory (Inventory/hosts) 
 before execution.
+Also, you can use **test_fastdeploy.sh** shell script to simple deploying prebuilded web-archive
 
 # Author
 (C) Rinat Ametov
