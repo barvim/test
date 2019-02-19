@@ -36,7 +36,7 @@ but if you used at least one tag, then unicluded tagged tasks will be disabled.
 |**postgre**|Enable postgre role tasks    |
 
 
-# Running test task
+# Running test task 
 Use **test.sh** shell script or run **"sudo ansible-playbook ./test.yml"** from test 
 directory. It needs to add target host records to inventory (Inventory/hosts) 
 before execution.
